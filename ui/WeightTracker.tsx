@@ -5,7 +5,7 @@
  * state.json file the Pi extension writes. Changes from either
  * direction are reflected instantly via file watching.
  *
- * Design: clean, supportive health companion — indigo/purple accents,
+ * Design: clean, supportive health companion — brand-aware accents,
  * calming dark tones, gentle encouragement messaging.
  */
 
@@ -31,9 +31,11 @@ const CUSTOM_STYLES = `
     --wt-text: #e8e4df;
     --wt-muted: #8b8d97;
     --wt-dim: #5c5e6a;
-    --wt-accent: #818cf8;
-    --wt-accent-hover: #a5b4fc;
-    --wt-accent-glow: rgba(129, 140, 248, 0.12);
+    --wt-accent: var(--brand-primary, #34d399);
+    --wt-accent-hover: var(--brand-primary-hover, #6ee7b7);
+    --wt-accent-foreground: var(--brand-primary-foreground, #052e1c);
+    --wt-accent-glow: var(--brand-primary-muted, rgba(52, 211, 153, 0.12));
+    --wt-accent-border: var(--brand-primary-border, rgba(52, 211, 153, 0.2));
     --wt-success: #34d399;
     --wt-warning: #fb923c;
     --wt-goal: #c084fc;
@@ -86,7 +88,7 @@ const CUSTOM_STYLES = `
 
   .wt-button {
     background: var(--wt-accent);
-    color: #ffffff;
+    color: var(--wt-accent-foreground);
     border: none;
     border-radius: 8px;
     padding: 6px 16px;
@@ -107,7 +109,7 @@ const CUSTOM_STYLES = `
 
   .wt-encouragement {
     background: var(--wt-accent-glow);
-    border-left: 2px solid var(--wt-accent);
+    border-left: 2px solid var(--wt-accent-border);
     border-radius: 0 8px 8px 0;
     padding: 10px 14px;
     margin: 0 20px;
